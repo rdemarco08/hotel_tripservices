@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/head %>
+</head>
+<body class="container">
+
+<header>
+    <% include ../partials/header %>
+</header>
+
+<ul class="list-group">
+
+    <% for (var i = 0; i < solutions.length; i++) { %>
+		<li class="list-group-item">
+            <div class="media">
+              <div class="media-left">
+            <img class="media-object" src='<%= solutions[i].PropertySummary.Image[0].value %>' alt='Hotel' width="215" height="122"/>
+              </div>
+              <div class="media-body">
+			Property Name: <%= solutions[i].PropertySummary.name %><br> 
+			Chain Code: <%= solutions[i].PropertySummary.PropertyKey.chainCode %><br> 
+			Property Code: <%= solutions[i].PropertySummary.PropertyKey.propertyCode %><br>
+			Rack Rate: $<%= solutions[i].RackRate.value %>
+           <button class="btn pull-right" onClick="myFunction('<%= i %>')">Check Availability</button>
+           </div>
+            </div>
+        </li>
+	<% } %>
+</ul>
+<footer>
+    <% include ../partials/footer %>
+</footer>
+<script>
+function myFunction(i) {
+    alert(i);
+}
+</script>
+</body>
+</html>
